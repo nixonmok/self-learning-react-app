@@ -1,13 +1,11 @@
-import { Badge, IconButton, PropTypes, Tooltip } from '@mui/material'
+import { Badge, IconButton, IconButtonProps, IconProps, PropTypes, Tooltip } from '@mui/material'
 import React, { FC } from 'react'
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import BasicMenu from '../common/BasicMenu';
 
-interface bellProps {
-    iconColor: PropTypes.Color;
-}
 
-const NotificationBell: FC<bellProps> = (props) => {
+
+const NotificationBell: FC<IconButtonProps> = (props) => {
     const [open, setOpen] = React.useState(false)
     const[anchorEl, setAnchorEl] = React.useState<null|HTMLElement>(null)
 
@@ -38,7 +36,7 @@ const NotificationBell: FC<bellProps> = (props) => {
         <>
             <Tooltip title={notification.length === 0 ? 'no new notification' : `you have ${notification.length} notification(s)`}>
                 <IconButton
-                    color={props.iconColor}
+                    color={props.color}
                     onClick={notification.length? handleOpen : ()=>{}}
                 >
                     <Badge badgeContent={notification.length} showZero>
@@ -51,7 +49,6 @@ const NotificationBell: FC<bellProps> = (props) => {
                 open={open}
                 anchorEl={anchorEl}
                 handleClose={handleClose} menuItems={notification} />
-
         </>
 
 
