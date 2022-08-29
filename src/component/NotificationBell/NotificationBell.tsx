@@ -2,6 +2,7 @@ import { Badge, IconButton, IconButtonProps, IconProps, PropTypes, Tooltip } fro
 import React, { FC } from 'react'
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import BasicMenu from '../common/BasicMenu';
+import BasicModal from '../common/BasicModal';
 
 
 
@@ -28,6 +29,8 @@ const NotificationBell: FC<IconButtonProps> = (props) => {
         
     }
 
+
+
     const handleClose = () =>{
         setOpen(false);
         console.log("close");
@@ -49,6 +52,7 @@ const NotificationBell: FC<IconButtonProps> = (props) => {
                 open={open}
                 anchorEl={anchorEl}
                 handleClose={handleClose} menuItems={notification} />
+            
         </>
 
 

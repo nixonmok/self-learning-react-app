@@ -9,6 +9,7 @@ const CommonButton:FC<ButtonProps> = (props) => {
             size={props.size}
             sx={props.sx}
             variant={props.variant}
+            onClick={props.onClick}
         >
             {props.children}
         </Button>

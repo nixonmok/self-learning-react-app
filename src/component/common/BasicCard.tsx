@@ -1,7 +1,5 @@
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';import React, { FC } from 'react'
-import { Input } from '@mui/material';
 import styled from 'styled-components';
 
 const StyledCard = styled(Card)`
