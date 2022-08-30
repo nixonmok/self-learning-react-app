@@ -24,8 +24,8 @@ const WrapperBox = styled(Box)`
 const Authentication = () => {
     const [openModal, setOpenModal] = React.useState(false) //open modal form?
     const [users, setUsers] = React.useState<{}[]>([]) //show user data
-    const [searchResult, setSearchResult] = React.useState(users) //copy users to searchResult(searchResult to keep original data)
-
+    const [searchResult, setSearchResult] = React.useState(users); //copy users to searchResult(searchResult to keep original data)
+    const [noResult, setNoResult] = React.useState<boolean>(true); //show 'type to search' or 'no match result'
 
     const handleOpenModal = () => {
         setOpenModal(true)
@@ -54,6 +54,8 @@ const Authentication = () => {
                     return objectValue.startsWith(trimedInput);
                 })                
             })
+            filterResult ?  setNoResult(false) : setNoResult(true);
+            
             setUsers(filterResult)
         }        
          
@@ -103,7 +105,7 @@ const Authentication = () => {
                         )):console.log("hi")
                         }
                         <Typography align='center' marginTop={'40px'} marginBottom={'16px'} fontSize={'1.3rem'} >
-                            Type username to search
+                            {noResult ? 'Type to search': users.length ? '' : 'No match result' }
                         </Typography>
                     </>
                         
